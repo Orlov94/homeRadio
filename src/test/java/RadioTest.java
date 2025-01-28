@@ -440,4 +440,15 @@ class RadioTest {
         assertEquals(expected, actual);
 
     }
+    @Test
+    void value() {
+        radio.setCurrentValue(4);
+        radio.decreaseValue();
+
+        int actual = radio.getCurrentValue();
+        int expected = 3;
+
+        assertEquals(expected, actual);
+
+    }
 }
