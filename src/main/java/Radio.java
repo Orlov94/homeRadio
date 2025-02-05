@@ -1,7 +1,19 @@
 public class Radio {
 
+
     private int currentStation;
+
+    private int countStation = 10;
     private int currentValue;
+    private int maxValue = 100;
+
+    public Radio(int countStation) {
+        this.countStation = countStation;
+    }
+
+    public Radio() {
+
+    }
 
     public int getCurrentStation() {
         return currentStation;
@@ -11,26 +23,18 @@ public class Radio {
         if (currentStation < 0) {
             return;
         }
-        if (currentStation > 9) {
+        if (currentStation > (countStation - 1)) {
             return;
         }
         this.currentStation = currentStation;
     }
 
-    public void nextStation() {
-        if (currentStation == 9) {
-            currentStation = 0;
-        } else {
-            currentStation = currentStation + 1;
-        }
+    public int getCountStation() {
+        return countStation;
     }
 
-    public void prevStation() {
-        if (currentStation == 0) {
-            currentStation = 9;
-        } else {
-            currentStation = currentStation - 1;
-        }
+    public void setCountStation(int countStation) {
+        this.countStation = countStation;
     }
 
     public int getCurrentValue() {
@@ -38,7 +42,7 @@ public class Radio {
     }
 
     public void setCurrentValue(int currentValue) {
-        if (currentValue > 10) {
+        if (currentValue > maxValue) {
             return;
         }
         if (currentValue < 0) {
@@ -48,18 +52,30 @@ public class Radio {
         this.currentValue = currentValue;
     }
 
+    public void nextStation() {
+        if (currentStation == (countStation - 1)) {
+            setCurrentStation(0);
+            return;
+        }
+        setCurrentStation(currentStation = currentStation + 1);
+    }
+
+    public void prevStation() {
+        if (currentStation == 0) {
+            setCurrentStation(countStation - 1);
+            return;
+        }
+        setCountStation(currentStation = currentStation - 1);
+    }
+
     public void increaseValue() {
-        if (currentValue >= 10) {
-            currentValue = 10;
-        } else {
+        if (currentValue < maxValue) {
             currentValue = currentValue + 1;
         }
     }
 
     public void decreaseValue() {
-        if (currentValue <= 0) {
-            currentValue = 0;
-        } else {
+        if (currentValue > 0) {
             currentValue = currentValue - 1;
         }
     }
