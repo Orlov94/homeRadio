@@ -57,7 +57,7 @@ public class Radio {
             setCurrentStation(0);
             return;
         }
-        setCurrentStation(currentStation = currentStation + 1);
+        setCurrentStation(currentStation + 1);
     }
 
     public void prevStation() {
@@ -65,7 +65,7 @@ public class Radio {
             setCurrentStation(countStation - 1);
             return;
         }
-        setCountStation(currentStation = currentStation - 1);
+        setCurrentStation(currentStation - 1);
     }
 
     public void increaseValue() {
